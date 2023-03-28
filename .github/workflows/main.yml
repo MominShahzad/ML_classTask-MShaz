@@ -1,8 +1,12 @@
 on: 
   push:
-    branches: [ main ]
+    branches: [ M1, M2 ]
+    
+  pull_request_review:
+    types: [submitted]
 jobs:
   build:
+    if: github.event.review.state == 'approved' || github.ref == 'refs/heads/M1' || github.ref == 'refs/heads/M2' 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -19,4 +23,5 @@ jobs:
     - name: Test
       run: |
         make test
-
+        
+        
