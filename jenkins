@@ -1,0 +1,4 @@
+docker images purge
+git clone https://github.com/NUCES-ISB/ML_classTask-MShaz.git
+docker build -t polymath .
+docker run -p 5000:5000 polymath
