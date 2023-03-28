@@ -1,6 +1,6 @@
 on: 
   push:
-    branches: [ M1 ]
+    branches: [ M1, M2 ]
     
   pull_request_review:
     types: [submitted]
