@@ -3,6 +3,7 @@ on:
     branches: [ M1, M2 ]
     
   pull_request_review:
+    branches: [ main ]
     types: [submitted]
 jobs:
   main_build:
