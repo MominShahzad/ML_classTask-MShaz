@@ -1,0 +1,30 @@
+on: 
+  push:
+    branches: [ M1 ]
+    
+  pull_request_review:
+    types: [submitted]
+jobs:
+  build:
+    if: github.event.review.state == 'approved' || github.ref == 'refs/heads/M1'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.9.16
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.9.16
+    - name: Install dependencies
+      run: |
+        make install
+    - name: lint
+      run: |
+        make lint
+    - name: Test
+      run: |
+        make test
+        
+        
+
+ 
+
