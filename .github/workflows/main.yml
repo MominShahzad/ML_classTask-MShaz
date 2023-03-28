@@ -6,7 +6,7 @@ on:
     types: [submitted]
 jobs:
   build:
-    if: github.event.review.state == 'approved' || github.ref == 'refs/heads/M1'
+    if: github.event.review.state == 'approved' || github.ref == 'refs/heads/M1' || github.ref == 'refs/heads/M2'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
