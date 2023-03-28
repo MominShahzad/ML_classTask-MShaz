@@ -6,7 +6,7 @@ on:
     types: [submitted]
 jobs:
   build:
-    if: github.event.review.state == 'approved'
+    if: github.event.review.state == 'approved' || github.branch == [M1,M2]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
