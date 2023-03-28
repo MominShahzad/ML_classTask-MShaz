@@ -2,11 +2,11 @@ on:
   push:
     branches: [ M1 ]
     
-  pull_request:
-    types:
-      - synchronize
+  pull_request_review:
+    types: [submitted]
 jobs:
   build:
+    if: github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -23,4 +23,8 @@ jobs:
     - name: Test
       run: |
         make test
+        
+        
+
+ 
 
